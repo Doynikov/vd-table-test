@@ -1,0 +1,92 @@
+{
+  "headers": [
+    {
+      "text": "ID",
+      "value": "id",
+      "align": "right"
+    },
+    {
+      "text": "имя",
+      "value": "name"
+    },
+    {
+      "text": "фамилия",
+      "value": "surname"
+    },
+    {
+      "text": "возраст",
+      "value": "age",
+      "align": "right"
+    },
+    {
+      "text": "пол",
+      "value": "gender",
+      "align": "center"
+    }
+  ],
+  "items": [
+    {
+      "id": 1,
+      "name": "Александр",
+      "surname": "Петров",
+      "age": 22,
+      "gender": "m"
+    },
+    {
+      "id": 2,
+      "name": "Руслан",
+      "surname": "Боширов",
+      "age": 32,
+      "gender": "m"
+    },
+    {
+      "id": 3,
+      "name": "Руслан",
+      "surname": "Петров",
+      "age": 44,
+      "gender": "m"
+    },
+    {
+      "id": 4,
+      "name": "Руслана",
+      "surname": "Баширова",
+      "age": 66,
+      "gender": "f"
+    },
+    {
+      "id": 5,
+      "name": "Александра",
+      "surname": "Петрова",
+      "age": 90,
+      "gender": "f"
+    },
+    {
+      "id": 6,
+      "name": "Александр",
+      "surname": "Баширов",
+      "age": 5,
+      "gender": "m"
+    },
+    {
+      "id": 7,
+      "name": "Петр",
+      "surname": "Иванов",
+      "age": 6,
+      "gender": "m"
+    },
+    {
+      "id": 8,
+      "name": "Иван",
+      "surname": "Иванов",
+      "age": 33,
+      "gender": "m"
+    },
+    {
+      "id": 9,
+      "name": "Джон",
+      "surname": "Смит",
+      "age": 17,
+      "gender": "m"
+    }
+  ]
+}
