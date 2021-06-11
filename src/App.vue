@@ -1,23 +1,22 @@
 <template>
-  <v-app> 
-    <v-main>      
-      <data-table/>
-    </v-main>
-  </v-app>
+  <div class="main">
+    <div class="v-application">
+      <v-container>
+        <v-row class="text-center">
+          <v-col cols="12">
+            <router-link to="/"> Table VD </router-link> |
+            <router-link to="/vuetify"> Table vuetify </router-link>
+            <h1 class="display-2 pt-10 pb-10">НАШИ ТАМ</h1>
+          </v-col>
+        </v-row>
+      </v-container>
+    </div>
+    <router-view />
+  </div>
 </template>
 
 <script>
-import DataTable from './components/DataTable.vue';
-
 export default {
-  name: 'App',
-
-  components: {
-    DataTable,
-  },
-
-  data: () => ({
-    //
-  }),
+  name: "App",
 };
 </script>

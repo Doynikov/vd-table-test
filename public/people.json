@@ -16,12 +16,14 @@
     {
       "text": "возраст",
       "value": "age",
-      "align": "right"
+      "align": "right",
+      "slot": "colorchip"
     },
     {
       "text": "пол",
       "value": "gender",
-      "align": "center"
+      "align": "center",
+      "slot": "gendericon"      
     }
   ],
   "items": [
