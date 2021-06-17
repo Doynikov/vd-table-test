@@ -22,7 +22,7 @@
                     :class="
                       selectAll
                         ? ' mdi-checkbox-marked'
-                        : 'mdi-checkbox-blank-outline'
+                        : ' mdi-checkbox-blank-outline'
                     "
                   ></i>
                   <div class="v-input--selection-controls__ripple"></div>

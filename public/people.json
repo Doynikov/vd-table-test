@@ -3,21 +3,25 @@
     {
       "text": "ID",
       "value": "id",
-      "align": "right"
+      "align": "right",
+      "sortable": "sortable"
     },
     {
       "text": "имя",
-      "value": "name"
+      "value": "name",
+      "sortable": "sortable"
     },
     {
       "text": "фамилия",
-      "value": "surname"
+      "value": "surname",
+      "sortable": "sortable"
     },
     {
       "text": "возраст",
       "value": "age",
       "align": "right",
-      "slot": "colorchip"
+      "slot": "colorchip",
+      "sortable": "sortable"
     },
     {
       "text": "пол",
