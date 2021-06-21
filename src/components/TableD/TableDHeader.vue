@@ -8,16 +8,12 @@
     </slot>
 
     <span
-      v-if="
-        header.sortable &&
-        ((sortIndex == index) ||
-          (sortIndex==-1 && startSortIndex == index))
-      "
+      v-if="header.sortable && ((sortColumn == header.value) || (sortColumn=='' && startSortColumn == header.value))"
     >
       <i
         v-if="
           (sortOrder == 1) ||
-          (sortIndex==-1 && startSortOrder == 1)
+          (sortColumn=='' && startSortOrder == 1)
         "
         class="
           v-icon
@@ -54,17 +50,17 @@ export default {
       type: Number,
       default: 0,
     },
-    sortIndex: {
-      type: Number,
-      default: 0,
+    sortColumn: {
+      type: String,
+      default: '',
     },
     sortOrder: {
       type: Number,
       default: 0,
     },
-    startSortIndex: {
-      type: Number,
-      default: 0,
+    startSortColumn: {
+      type: String,
+      default: '',
     },
     startSortOrder: {
       type: Number,
@@ -83,7 +79,7 @@ export default {
   },
   methods: {
     handlerClick() {
-      this.$emit("sort", this.index);
+      this.$emit("sort", this.header.value);
     },
   },
 };

@@ -12,7 +12,7 @@
                 :items-per-page="itemsPerPage"
                 :show-select="showSelect"
                 :show-header="showHeader"
-                :startSortIndex="startSortIndex"
+                :startSortColumn="startSortColumn"
                 :startSortOrder="startSortOrder"                
               >
               </table-d>
@@ -41,7 +41,7 @@ export default {
       itemsPerPage: 5,
       url: "people.json",
       loaded: false,
-      startSortIndex: 3,
+      startSortColumn: "name",
       startSortOrder: -1
     };
   },

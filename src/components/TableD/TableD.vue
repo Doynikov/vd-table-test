@@ -19,11 +19,10 @@
             :key="index"
             :header="header"
             :index="index"
-            :sort-index.sync="sortIndex"
+            :sort-column.sync="sortColumn"
             :sort-order.sync="sortOrder"
-            :start-sort-index.sync="startSortIndex"
-            :start-sort-order.sync="startSortOrder"
-            :sorting="sorting"
+            :start-sort-column.sync="startSortColumn"
+            :start-sort-order.sync="startSortOrder"            
             v-on:sort="sort"
           >
             <template v-slot:[`head-${header.value}`]="data">
@@ -139,9 +138,9 @@ export default {
       type: Array,
       default: () => [],
     },
-    startSortIndex: {
-      type: Number,
-      default: 0,
+    startSortColumn: {
+      type: String,
+      default: '',
     },
     startSortOrder: {
       type: Number,
@@ -159,7 +158,7 @@ export default {
   data: function () {
     return {
       update: false,
-      sortIndex: -1,
+      sortColumn: "",
       sortOrder: 0,
       isSelectAll: false
     };
@@ -178,20 +177,25 @@ export default {
       if (!this.hasHeaders) {
         return items;
       }
-      let sortIndex, sortOrder;
-      if (this.sortIndex>-1) {
-        sortIndex = this.sortIndex;
+      let sortColumn, sortOrder;
+      if (this.sortColumn!='') {
+        sortColumn = this.sortColumn;
         sortOrder = this.sortOrder;
       } else {
-        sortIndex = this.startSortIndex;
+        sortColumn = this.startSortColumn;
         sortOrder = this.startSortOrder;
       }
       let headers = this.headers;
 
-      if (!isNaN(sortIndex)) {
+//console.log(sortColumn,'5555555555')      
+      let header=headers.find(h=>h.value==sortColumn)
+
+//console.log(header.value,'6666')
+
+    if (sortColumn!='') {
         items = items.slice().sort(function (a, b) {
-          a = a[headers[sortIndex].value];
-          b = b[headers[sortIndex].value];
+          a = a[header.value];
+          b = b[header.value];
           return (a === b ? 0 : a > b ? 1 : -1) * sortOrder;
         });
       }
@@ -199,21 +203,19 @@ export default {
     },
   },
   methods: {
-    sort: function (index) {
-      if (this.sortIndex == index) {
+    sort: function (column) {
+      if (this.sortColumn == column) {
         this.sortOrder = this.sortOrder < 1 ? 1 : -1;
       } else {
         this.sortOrder = 1;
       }
-      this.sortIndex = index;      
+      this.sortColumn = column;      
     },
     doSelectAll: function () {
       this.isSelectAll = !this.isSelectAll;
       this.update = !this.update;
-      //this.selectedItem = [];
       for (let i = 0; i < this.sortedItems.length; i++) {
         this.sortedItems[i].selected = this.isSelectAll;
-        //if (this.selectAll) this.selectedItem.push(this.filteredItems[i]);
       }
     },
     doSelect: function (index) {     
