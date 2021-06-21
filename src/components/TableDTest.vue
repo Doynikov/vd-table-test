@@ -12,7 +12,6 @@
                 :items-per-page="itemsPerPage"
                 :show-select="showSelect"
                 :show-header="showHeader"
-                :sorting="sorting"
                 :startSortIndex="startSortIndex"
                 :startSortOrder="startSortOrder"                
               >
@@ -42,7 +41,6 @@ export default {
       itemsPerPage: 5,
       url: "people.json",
       loaded: false,
-      sorting: true,
       startSortIndex: 3,
       startSortOrder: -1
     };

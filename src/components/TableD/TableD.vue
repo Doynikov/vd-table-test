@@ -24,7 +24,6 @@
             :start-sort-index.sync="startSortIndex"
             :start-sort-order.sync="startSortOrder"
             :sorting="sorting"
-            :loaded="loaded"
             v-on:sort="sort"
           >
             <template v-slot:[`head-${header.value}`]="data">
@@ -140,10 +139,6 @@ export default {
       type: Array,
       default: () => [],
     },
-    sorting: {
-      type: Boolean,
-      default: true,
-    },
     startSortIndex: {
       type: Number,
       default: 0,
@@ -164,9 +159,8 @@ export default {
   data: function () {
     return {
       update: false,
-      sortIndex: 0,
+      sortIndex: -1,
       sortOrder: 0,
-      loaded: false,
       isSelectAll: false
     };
   },
@@ -185,7 +179,7 @@ export default {
         return items;
       }
       let sortIndex, sortOrder;
-      if (this.loaded) {
+      if (this.sortIndex>-1) {
         sortIndex = this.sortIndex;
         sortOrder = this.sortOrder;
       } else {
@@ -205,19 +199,13 @@ export default {
     },
   },
   methods: {
-    sort: function (item) {
-      this.loaded = true;
-      this.sortIndex = item.index;
-      var isSelected = this.headers[item.index].isSelected || false;
-      if (isSelected) {
+    sort: function (index) {
+      if (this.sortIndex == index) {
         this.sortOrder = this.sortOrder < 1 ? 1 : -1;
       } else {
-        for (let i = 0; i < this.headers.length; i++) {
-          this.headers[i].clickedSort = true;
-          this.headers[i].isSelected = i == item.index;
-        }
         this.sortOrder = 1;
       }
+      this.sortIndex = index;      
     },
     doSelectAll: function () {
       this.isSelectAll = !this.isSelectAll;

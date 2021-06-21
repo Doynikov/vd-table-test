@@ -9,7 +9,8 @@
     {
       "text": "имя",
       "value": "name",
-      "sortable": "sortable"
+      "sortable": "sortable",
+      "width": "200px"
     },
     {
       "text": "фамилия",
